@@ -46,5 +46,11 @@ pipeline {
       sh 'mvn clean package'
       }
     }
+    
+    stage ('Deploy-To-Tomcat') {
+            steps {
+                sh 'scp /prod/apache-tomcat-8.5.39/webapps/webapp.war'
+           }       
+    }
   }
 }

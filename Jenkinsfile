@@ -52,5 +52,11 @@ pipeline {
                 sh 'cp target/*.jar /prod/apache-tomcat-8.5.61/webapps/webapp.jar'     
            }       
     }
+    /*
+    stage ('DAST') {
+      steps {
+         sh 'ssh -o  StrictHostKeyChecking=no ubuntu@13.232.158.44 "docker run -t owasp/zap2docker-stable zap-baseline.py -t http://13.232.202.25:8080/webapp/" || true'
+      }
+    } */
   }
 }

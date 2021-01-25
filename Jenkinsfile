@@ -49,9 +49,7 @@ pipeline {
     
     stage ('Deploy-To-Tomcat') {
             steps {
-           sshagent(['tomcat']) {
-                sh 'scp -o StrictHostKeyChecking=no target/*.war auberon@localhost:8082/prod/apache-tomcat-8.5.61/webapps/webapp.war'
-              }      
+                sh 'cp -o target/*.jar /prod/apache-tomcat-8.5.61/webapps/webapp.jar'     
            }       
     }
   }
